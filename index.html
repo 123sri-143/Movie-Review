@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A modern Movie Review Platform where you can search, view details, and submit reviews with ratings.">
+  <meta name="keywords" content="Movies, Reviews, Ratings, Cinema, Film, Platform">
+  <meta name="author" content="Your Name">
+
+  <title>Movie Review And Rating Platform</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <header>
+        <h1>🎬Movie Review And Rating Platform🎬</h1>
+        <div class="search-bar">
+            <input type="text" id="search-input" placeholder="Search for a movie...">
+        </div>
+    </header>
+
+    <main class="movie-gallery" id="movie-gallery">
+        <!-- Movie Cards -->
+        <div class="movie-card">
+            <img src="./assets/Fast and Furious.jpg" alt="Action"><br>
+            <h2>Fast and Furious</h2><br>
+            <button class="view-details" onclick="openModal('Movie 1')">Add Your Review</button>
+        </div>
+        <div class="movie-card">
+            <img src="./assets/Mission Impossible.jpg" alt="Adventurous"><br>
+            <h2>Mission Impossible</h2><br>
+            <button class="view-details" onclick="openModal('Movie 2')">Add Your Review</button>
+        </div>
+        <div class="movie-card">
+            <img src="./assets/Fifty shades of grey.jpg" alt="Romance"><br>
+            <h2>Fifty Shades of Grey</h2><br>
+            <button class="view-details" onclick="openModal('Movie 3')">Add Your Review</button>
+        </div>
+        <div class="movie-card">
+            <img src="./assets/The Conjuring.jpg" alt="Horror"><br>
+            <h2>The Conjuring</h2><br>
+            <button class="view-details" onclick="openModal('Movie 4')">Add Your Review</button>
+        </div>
+        <div class="movie-card">
+            <img src="./assets/Oppenheimer.jpg" alt="Knowledgeable"><br>
+            <h2>Oppenheimer</h2><br>
+            <button class="view-details" onclick="openModal('Movie 5')">Add Your Review</button>
+        </div>
+        <div class="movie-card">
+            <img src="./assets/Interstellar.jpg" alt="Sci-fic"><br>
+            <h2>Interstellar</h2><br>
+            <button class="view-details" onclick="openModal('Movie 6')">Add Your Review</button>
+        </div>
+        <div class="movie-card">
+            <img src="./assets/Nowhere.jpg" alt="Suspense Thriller"><br>
+            <h2>Nowhere</h2><br>
+            <button class="view-details" onclick="openModal('Movie 7')">Add Your Review</button>
+        </div>
+        <div class="movie-card">
+            <img src="./assets/Sherlock Holmes.jpg" alt="Crime Investigation"><br>
+            <h2>Sherlock Holmes</h2><br>
+            <button class="view-details" onclick="openModal('Movie 8')">Add Your Review</button>
+        </div>
+        <div class="movie-card last-card">
+            <img src="./assets/Friends.jpg" alt="Comedy"><br>
+            <h2>Friends</h2><br>
+            <button class="view-details" onclick="openModal('Movie 9')">Add Your Review</button>
+        </div>
+    </main>
+
+    <!-- Modal -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2 id="modal-title">Movie Title</h2>
+            <div class="reviews">
+                <h3>Reviews</h3>
+                <ul id="review-list"></ul>
+            </div>
+            <div class="submit-review">
+                <h3>Submit Review</h3>
+                <input type="text" id="reviewer" placeholder="Your Name">
+                <textarea id="review-text" placeholder="Your review"></textarea>
+                <label for="rating">Rating:</label>
+                <select id="rating">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+                <button onclick="submitReview()">Submit</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
