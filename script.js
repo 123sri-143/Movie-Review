@@ -53,11 +53,39 @@ window.onclick = function(event) {
 }
 
 // Search functionality
-document.getElementById('search-input').addEventListener('input', function() {
-    const query = this.value.toLowerCase();
+// Real-time search functionality (fixed)
+document.getElementById('search-input').addEventListener('input', function () {
+    const query = this.value.toLowerCase().trim();
     const movies = document.querySelectorAll('.movie-card');
+    let found = false;
+
     movies.forEach(movie => {
-        const title = movie.querySelector('h3').innerText.toLowerCase();
-        movie.style.display = title.includes(query) ? 'block' : 'none';
+        const title = movie.querySelector('h2').innerText.toLowerCase();
+        if (title.includes(query)) {
+            movie.style.display = 'block';
+            found = true;
+        } else {
+            movie.style.display = 'none';
+        }
     });
+
+    // Optional: show a "No movies found" message if nothing matches
+    let noResult = document.getElementById('no-result');
+    const gallery = document.getElementById('movie-gallery');
+    if (!found) {
+        if (!noResult) {
+            noResult = document.createElement('div');
+            noResult.id = 'no-result';
+            noResult.textContent = '❌ No movies found';
+            noResult.style.textAlign = 'center';
+            noResult.style.padding = '2rem';
+            noResult.style.fontSize = '1.2rem';
+            noResult.style.color = '#ff3d00';
+            gallery.appendChild(noResult);
+        }
+    } else if (noResult) {
+        noResult.remove();
+    }
 });
+
+
